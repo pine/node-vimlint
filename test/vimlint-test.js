@@ -4,7 +4,8 @@ var path = require('path');
 var chai = require('chai');
 var expect = chai.expect;
 
-var vimlint = require('../lib/vimlint');
+var requireHelper = require('./require_helper');
+var vimlint = requireHelper('lib/vimlint');
 
 describe('Unit test for lib/vimlint.js', function () {
   it('should pass test', function (done) {

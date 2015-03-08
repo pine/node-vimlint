@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "grunt test",
-    "coverage": "grunt coverage",
+    "coverage": "codeclimate < coverage/reports/lcov.info",
     "postinstall": "node setup postinstall"
   },
   "repository": {
@@ -32,18 +32,16 @@
     "rimraf": "^2.2.8"
   },
   "devDependencies": {
-    "async": "^0.9.0",
     "chai": "^2.1.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.0",
+    "grunt-env": "^0.4.4",
+    "grunt-istanbul": "^0.4.0",
     "grunt-jsonlint": "^1.0.4",
-    "grunt-mocha-cov": "^0.3.0"
-  },
-  "config": {
-    "blanket": {
-      "pattern": "lib",
-      "data-cover-never": "node_modules"
-    }
+    "grunt-mocha-test": "^0.12.7",
+    "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.2.0"
   }
 }

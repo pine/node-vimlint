@@ -1,22 +1,45 @@
 'use strict';
 
+var path = require('path');
+
 module.exports = function(grunt) {
+  require('load-grunt-tasks')(grunt);
+  
   grunt.initConfig({
-    mochacov: {
-      options: {
-        files: ['test/**/*-test.js'],
-        timeout: 10 * 1000
-      },
-      test: {
-        options: {
-          reporter: 'spec'
-        }
-      },
+    env: {
       coverage: {
-        options: {
-          coveralls: true
-        }
+        APP_DIR_FOR_CODE_COVERAGE: path.join(__dirname, 'build')
       }
+    },
+    instrument: {
+      files: 'lib/**/*.js',
+      options: {
+        lazy: false,
+        basePath: 'build'
+      }
+    },
+    mochaTest: {
+      options: {
+        reporter: 'spec'
+      },
+      src: ['test/**/*-test.js']
+    },
+    storeCoverage: {
+      options: {
+        dir: 'coverage/reports'
+      }
+    },
+    makeReport: {
+      src: 'coverage/reports/**/*.json',
+      options: {
+        type: 'lcov',
+        dir: 'coverage/reports',
+        print: 'detail'
+      }
+    },
+    concurrent: {
+      lint: ['jshint', 'jsonlint'],
+      test: ['concurrent:lint', 'coverage']
     },
     jshint: {
       options: {
@@ -29,10 +52,8 @@ module.exports = function(grunt) {
     }
   });
   
-  grunt.registerTask('test', ['jshint', 'jsonlint', 'mochacov:test']);
-  grunt.registerTask('coverage', ['mochacov:coverage']);
-  
-  grunt.loadNpmTasks('grunt-mocha-cov');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-jsonlint');
+  grunt.registerTask('lint', ['concurrent:lint']);
+  grunt.registerTask('coverage',
+    ['env:coverage', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
+  grunt.registerTask('test', ['concurrent:test']);
 };

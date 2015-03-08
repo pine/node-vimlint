@@ -5,17 +5,15 @@ node_js:
   - iojs
 
 script:
-  # Basic test
-  - npm test
-  
   # Test postinstall
   - rm -rf node_modules
   - npm install .
   - npm install
   
-  # Test re-postinstall
-  - npm install .
+  # Test
   - npm test
-  
-  # Add coverage
   - npm run coverage
+
+env:
+  global:
+    secure: "bYfP25nebZwoiWjp3SSfYSKyTmNZHThI5P0MVSuFlFW3PyPPC+MmToYrzLZc6qe03We+dhV7FPMfM1QZmhTfBiaB21t7tkTYW7Krpri6nbNm6TNLlIv8/HUfPEwJur4FUph38z0hPlS9rgS8SqljvahGnxfVDhU3znUdm54Nqdg="
