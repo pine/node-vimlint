@@ -13,11 +13,15 @@ module.exports = function(grunt) {
     },
     copy: {
       'vim-vimlint': {
-        src: 'vim-vimlint/**/*',
+        expand: true,
+        cwd: 'vim-vimlint',
+        src: '**',
         dest: 'build/vim-vimlint/'
       },
       'vim-vimlparser': {
-        src: 'vim-vimlparser/**/*',
+        expand: true,
+        cwd: 'vim-vimlparser',
+        src: '**',
         dest: 'build/vim-vimlparser/'
       }
     },
