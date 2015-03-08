@@ -11,6 +11,8 @@ describe('Unit test for lib/vimlint.js', function () {
     vimlint(
       path.join(__dirname, 'succeeded.vim'),
       function (err, stdout, stderr) {
+        if (stdout) { process.stdout.write(stdout); }
+        if (stderr) { process.stderr.write(stderr); }
         expect(err).to.not.be.ok;
         done(err);
       });
@@ -20,6 +22,8 @@ describe('Unit test for lib/vimlint.js', function () {
     vimlint(
       path.join(__dirname, 'failed.vim'),
       function (err, stdout, stderr) {
+        if (stdout) { process.stdout.write(stdout); }
+        if (stderr) { process.stderr.write(stderr); }
         expect(err).to.be.ok;
         done();
       });
