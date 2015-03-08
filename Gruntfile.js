@@ -4,7 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     mochacov: {
       options: {
-        files: 'test/**/*-test.js'
+        files: 'test/**/*-test.js',
+        timeout: 10 * 1000
       },
       test: {
         options: {
