@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - '0.10'
+  - '0.12'
+  - iojs
+
+script:
+  # Basic test
+  - npm test
+  
+  # Test postinstall
+  - rm -rf node_modules
+  - npm install .
+  - npm install
+  
+  # Test re-postinstall
+  - npm install .
+  - npm test
