@@ -13,12 +13,12 @@ module.exports = function(grunt) {
     },
     copy: {
       'vim-vimlint': {
-        src: 'vim-vimlint',
-        dest: 'build/vim-vimlint'
+        src: 'vim-vimlint/**/*',
+        dest: 'build/vim-vimlint/'
       },
       'vim-vimlparser': {
-        src: 'vim-vimlparser',
-        dest: 'build/vim-vimlparser'
+        src: 'vim-vimlparser/**/*',
+        dest: 'build/vim-vimlparser/'
       }
     },
     instrument: {
@@ -48,8 +48,7 @@ module.exports = function(grunt) {
       }
     },
     concurrent: {
-      lint: ['jshint', 'jsonlint'],
-      test: ['lint', 'coverage']
+      lint: ['jshint', 'jsonlint']
     },
     jshint: {
       options: {
@@ -65,5 +64,5 @@ module.exports = function(grunt) {
   grunt.registerTask('lint', ['concurrent:lint']);
   grunt.registerTask('coverage',
     ['env:coverage', 'copy', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
-  grunt.registerTask('test', ['concurrent:test']);
+  grunt.registerTask('test', ['lint', 'coverage']);
 };
