@@ -12,11 +12,7 @@
   "scripts": {
     "test": "grunt test",
     "coverage": "grunt coverage",
-    "postinstall": "node setup postinstall",
-    "blanket": {
-      "pattern": "lib",
-      "data-cover-never": "node_modules"
-    }
+    "postinstall": "node setup postinstall"
   },
   "repository": {
     "type": "git",
@@ -43,5 +39,11 @@
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-jsonlint": "^1.0.4",
     "grunt-mocha-cov": "^0.3.0"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    }
   }
 }
