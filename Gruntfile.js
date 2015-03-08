@@ -11,6 +11,11 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec'
         }
+      },
+      coverage: {
+        options: {
+          coveralls: true
+        }
       }
     },
     jshint: {
@@ -24,7 +29,12 @@ module.exports = function(grunt) {
     }
   });
   
-  grunt.registerTask('test', ['jshint', 'jsonlint', 'mochacov:test']);
+  var testTasks = ['jshint', 'jsonlint', 'mochacov:test'];
+  if (process.env.CI) {
+    testTasks.push('mochacov:coverage');
+  }
+  
+  grunt.registerTask('test', testTasks);
   
   grunt.loadNpmTasks('grunt-mocha-cov');
   grunt.loadNpmTasks('grunt-contrib-jshint');
