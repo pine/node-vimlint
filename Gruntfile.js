@@ -11,6 +11,16 @@ module.exports = function(grunt) {
         APP_DIR_FOR_CODE_COVERAGE: path.join(__dirname, 'build')
       }
     },
+    copy: {
+      'vim-vimlint': {
+        src: 'vim-vimlint',
+        dest: 'build/vim-vimlint'
+      },
+      'vim-vimlparser': {
+        src: 'vim-vimlparser',
+        dest: 'build/vim-vimlparser'
+      }
+    },
     instrument: {
       files: 'lib/**/*.js',
       options: {
@@ -39,7 +49,7 @@ module.exports = function(grunt) {
     },
     concurrent: {
       lint: ['jshint', 'jsonlint'],
-      test: ['concurrent:lint', 'coverage']
+      test: ['lint', 'coverage']
     },
     jshint: {
       options: {
@@ -54,6 +64,6 @@ module.exports = function(grunt) {
   
   grunt.registerTask('lint', ['concurrent:lint']);
   grunt.registerTask('coverage',
-    ['env:coverage', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
+    ['env:coverage', 'copy', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
   grunt.registerTask('test', ['concurrent:test']);
 };
