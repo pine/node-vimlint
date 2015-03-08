@@ -29,12 +29,8 @@ module.exports = function(grunt) {
     }
   });
   
-  var testTasks = ['jshint', 'jsonlint', 'mochacov:test'];
-  if (process.env.CI) {
-    testTasks.push('mochacov:coverage');
-  }
-  
-  grunt.registerTask('test', testTasks);
+  grunt.registerTask('test', ['jshint', 'jsonlint', 'mochacov:test']);
+  grunt.registerTask('coverage', ['mochacov:coverage']);
   
   grunt.loadNpmTasks('grunt-mocha-cov');
   grunt.loadNpmTasks('grunt-contrib-jshint');

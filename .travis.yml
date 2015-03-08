@@ -16,3 +16,6 @@ script:
   # Test re-postinstall
   - npm install .
   - npm test
+  
+  # Add coverage
+  - npm run coverage
