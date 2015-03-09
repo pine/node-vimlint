@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "lib",
+    "index.js",
     "setup.js",
     "LICENSE",
     "*.md"
