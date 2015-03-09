@@ -3,8 +3,6 @@
 var path = require('path');
 
 module.exports = function(grunt) {
-  require('load-grunt-tasks')(grunt);
-  
   grunt.initConfig({
     env: {
       coverage: {
@@ -25,6 +23,9 @@ module.exports = function(grunt) {
         dest: 'build/vim-vimlparser/'
       }
     },
+    
+    // ------------------------------------------------------------------------
+    
     instrument: {
       files: 'lib/**/*.js',
       options: {
@@ -52,9 +53,9 @@ module.exports = function(grunt) {
         print: 'detail'
       }
     },
-    concurrent: {
-      lint: ['jshint', 'jsonlint']
-    },
+    
+    // ------------------------------------------------------------------------
+    
     jshint: {
       options: {
         jshintrc: true
@@ -63,11 +64,21 @@ module.exports = function(grunt) {
     },
     jsonlint: {
       files: ['.jshintrc', '*.json']
+    },
+    
+    // ------------------------------------------------------------------------
+    
+    concurrent: {
+      lint: ['jshint', 'jsonlint']
     }
   });
+  
+  // ==========================================================================
   
   grunt.registerTask('lint', ['concurrent:lint']);
   grunt.registerTask('coverage',
     ['env:coverage', 'copy', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
   grunt.registerTask('test', ['lint', 'coverage']);
+  
+  require('load-grunt-tasks')(grunt);
 };
