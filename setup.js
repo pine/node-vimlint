@@ -1,7 +1,6 @@
 'use strict';
 
 var exec = require('child_process').exec;
-var util = require('util');
 var fs = require('fs');
 var rimraf = require('rimraf');
 
@@ -20,8 +19,8 @@ function git_clone(url) {
     }
     
     exec('git clone ' + url + ' ' + folder, function (err, stdout, stderr) {
-      if (stdout) util.print(stdout);
-      if (stderr) util.print(stderr);
+      if (stdout) process.stdout.write(stdout);
+      if (stderr) process.stderr.write(stderr);
       
       if (err) {
         return process.exit(1);
