@@ -2,7 +2,7 @@
 
 var exec = require('child_process').exec;
 var fs = require('fs');
-var rimraf = require('rimraf');
+var rimraf;
 
 var repos = [
   'https://github.com/syngan/vim-vimlint',
@@ -44,8 +44,19 @@ function clone_repos(repos) {
   });
 }
 
+function waitRimraf(cb) {
+  try {
+    rimraf = require('rimraf');
+    cb();
+  }
+  
+  catch (e) {
+    setTimeout(function () { waitRimraf(cb); }, 100);
+  }
+}
+
 switch (process.argv[process.argv.length - 1]) {
   case 'postinstall':
-    clone_repos(repos);
+    waitRimraf(function () { clone_repos(repos); });
     break;
 }
