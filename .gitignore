@@ -6,3 +6,5 @@ vim-vimlparser
 
 build
 coverage
+
+node-vimlint
