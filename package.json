@@ -16,7 +16,7 @@
     "coverage": "codeclimate < coverage/reports/lcov.info",
     "postinstall": "node setup postinstall"
   },
-  "bin": "bin/vimlint.js",
+  "bin": "bin/vimlint",
   "repository": {
     "type": "git",
     "url": "https://github.com/pine613/node-vimlint.git"
