@@ -19,6 +19,12 @@ This library requires `sh` and Vim.
 $ npm install vimlint --save
 ```
 
+If you want to use `vimlint` command on CLI, try to install in global (>= v0.2.0).
+
+```sh
+$ npm install -g vimlint
+```
+
 ## References
 ### vimlint(path, cb)
 
@@ -43,6 +49,21 @@ vimlint('testfile.vim', function (err, stdout, stderr) {
     console.log('OK');
   }
 });
+```
+
+### $ vimlint \<file ...\>
+
+```sh
+$ vimlint -h
+
+  Usage: vimlint <file ...>
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
+$ vimlint foo.vim
 ```
 
 ## Additional Notes
