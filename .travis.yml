@@ -20,7 +20,7 @@ script:
   - vimlint --help
   - vimlint --version
   - vimlint test/succeeded.vim
-  - vimlint test/failed.vim
+  - vimlint test/failed.vim; [ $? != 0 ]
 
 env:
   global:
