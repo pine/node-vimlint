@@ -19,6 +19,8 @@ script:
   - vimlint
   - vimlint --help
   - vimlint --version
+  - vimlint test/succeeded.vim
+  - vimlint test/failed.vim
 
 env:
   global:
