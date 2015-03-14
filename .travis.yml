@@ -14,6 +14,14 @@ script:
   - npm test
   - npm run coverage
 
+  # Test global install
+  - npm install . -g
+  - vimlint
+  - vimlint --help
+  - vimlint --version
+  - vimlint test/succeeded.vim
+  - vimlint test/failed.vim; [ $? != 0 ]
+
 env:
   global:
     secure: "bYfP25nebZwoiWjp3SSfYSKyTmNZHThI5P0MVSuFlFW3PyPPC+MmToYrzLZc6qe03We+dhV7FPMfM1QZmhTfBiaB21t7tkTYW7Krpri6nbNm6TNLlIv8/HUfPEwJur4FUph38z0hPlS9rgS8SqljvahGnxfVDhU3znUdm54Nqdg="

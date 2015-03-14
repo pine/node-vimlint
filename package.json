@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "lib",
+    "bin",
     "index.js",
     "setup.js",
     "LICENSE",
@@ -15,6 +16,7 @@
     "coverage": "codeclimate < coverage/reports/lcov.info",
     "postinstall": "node setup postinstall"
   },
+  "bin": "bin/vimlint",
   "repository": {
     "type": "git",
     "url": "https://github.com/pine613/node-vimlint.git"
@@ -30,6 +32,7 @@
   },
   "homepage": "https://github.com/pine613/node-vimlint",
   "dependencies": {
+    "commander": "^2.7.1",
     "rimraf": "^2.2.8"
   },
   "devDependencies": {
