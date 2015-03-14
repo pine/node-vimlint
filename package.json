@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/pine613/node-vimlint",
   "dependencies": {
+    "commander": "^2.7.1",
     "rimraf": "^2.2.8"
   },
   "devDependencies": {
