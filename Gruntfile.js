@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      files: ['*.js', 'tasks/**/*.js', 'test/**/*.js']
+      files: ['*.js', 'lib/**/*.js', 'test/**/*.js']
     },
     jsonlint: {
       files: ['.jshintrc', '*.json']
