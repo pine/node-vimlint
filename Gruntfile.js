@@ -21,6 +21,10 @@ module.exports = function(grunt) {
         cwd: 'vim-vimlparser',
         src: '**',
         dest: 'build/vim-vimlparser/'
+      },
+      'package.json': {
+        src: 'package.json',
+        dest: 'build/'
       }
     },
     
