@@ -69,6 +69,12 @@ $ vimlint foo.vim
 ## Additional Notes
 This library **doesn't work** on Windows. It works on Linux, Mac OS X, or other *nix OSs.
 
+## Plugins
+This library can use from Grunt and gulp.
+
+- [grunt-vimlint](https://github.com/pine613/grunt-vimlint)
+- [gulp-vimlint](https://github.com/pine613/gulp-vimlint)
+
 ## Acknowledgement
 This library uses following software to validate `.vim` files. Thank you.
 
