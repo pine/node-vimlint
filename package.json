@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "grunt test",
-    "coverage": "codeclimate < coverage/reports/lcov.info",
+    "coverage": "codeclimate < coverage/reports/lcov.info && coveralls < coverage/reports/lcov.info",
     "postinstall": "node setup postinstall"
   },
   "bin": "bin/vimlint",
@@ -39,6 +39,7 @@
     "async": "^0.9.0",
     "chai": "^2.1.1",
     "codeclimate-test-reporter": "0.0.4",
+    "coveralls": "^2.11.2",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",
