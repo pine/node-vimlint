@@ -12,7 +12,6 @@ script:
 
   # Test
   - npm test
-  - npm run coverage
 
   # Test global install
   - npm install . -g
@@ -21,6 +20,9 @@ script:
   - vimlint --version
   - vimlint test/succeeded.vim
   - vimlint test/failed.vim; [ $? != 0 ]
+
+after_success:
+  - npm run coverage
 
 env:
   global:
