@@ -27,9 +27,9 @@ module.exports = function(grunt) {
         dest: 'build/'
       }
     },
-    
+
     // ------------------------------------------------------------------------
-    
+
     instrument: {
       files: 'lib/**/*.js',
       options: {
@@ -57,9 +57,9 @@ module.exports = function(grunt) {
         print: 'detail'
       }
     },
-    
+
     // ------------------------------------------------------------------------
-    
+
     jshint: {
       options: {
         jshintrc: true
@@ -69,20 +69,33 @@ module.exports = function(grunt) {
     jsonlint: {
       files: ['.jshintrc', '*.json']
     },
-    
+
     // ------------------------------------------------------------------------
-    
+
     concurrent: {
-      lint: ['jshint', 'jsonlint']
+      lint: ['jshint', 'jsonlint'],
+      coverage: ['shell:codeclimate', 'shell:coveralls']
+    },
+
+    // ------------------------------------------------------------------------
+
+    shell: {
+      codeclimate: {
+        command: 'codeclimate-test-reporter < coverage/reports/lcov.info'
+      },
+      coveralls: {
+        command: 'coveralls < coverage/reports/lcov.info'
+      }
     }
   });
-  
+
   // ==========================================================================
-  
+
   grunt.registerTask('lint', ['concurrent:lint']);
-  grunt.registerTask('coverage',
+  grunt.registerTask('mocha',
     ['env:coverage', 'copy', 'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
-  grunt.registerTask('test', ['lint', 'coverage']);
-  
+  grunt.registerTask('test', ['lint', 'mocha']);
+  grunt.registerTask('coverage', ['concurrent:coverage']);
+
   require('load-grunt-tasks')(grunt);
 };
