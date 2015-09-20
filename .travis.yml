@@ -1,9 +1,8 @@
 language: node_js
 node_js:
   - '0.10'
-  - '0.12.0'
   - '0.12'
-  - iojs
+  - 4
 
 script:
   # Test postinstall
@@ -31,6 +30,6 @@ env:
 
 notifications:
   slack:
-    secure: "dO/0YS9SQvozILiZfJ4YxdQIbod7Z6LMggxA0m75Xoz6vpPK6/hzoXArmGkbVvSV/9IS6D0s/DnLp4w/TXssq6PtrCJnyRiXd+P4tCCCYKbcxUUBEWefJc/zwYjqSjIr6CyBsnR+yymPkaPzZ6Dk1xHsSaELoZ8g6n+IWM1Gckg="
+    secure: "FeGD9rqyqw6egfV1bPEW/E+DwZf18cotf6OuonETytKORVfFDya4oVlaKt2z/9VXaBz6t8eTCHum+8LDBAaZLry/upVim1PaCYGjIbV6BtpJkqqz5+1jZWyKeWnecXXI+y1LlpSl9hp8/ErBDTC+TtjocQIzEeXEoKsGhOrUCpU="
 
 sudo: false
