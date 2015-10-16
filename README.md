@@ -74,6 +74,7 @@ This library can use from Grunt and gulp.
 
 - [grunt-vimlint](https://github.com/pine613/grunt-vimlint)
 - [gulp-vimlint](https://github.com/pine613/gulp-vimlint)
+- [fly-vimlint](https://github.com/pine613/fly-vimlint)
 
 ## Acknowledgement
 This library uses following software to validate `.vim` files. Thank you.
