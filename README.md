@@ -40,11 +40,11 @@ var vimlint = require('vimlint')
 vimlint('testfile.vim', function (err, stdout, stderr) {
   if (stdout) { process.stdout.write(stdout); }
   if (stderr) { process.stderr.write(stderr); }
-  
+
   if (err) {
     console.log('ERROR', err);
   }
-  
+
   else {
     console.log('OK');
   }
@@ -83,5 +83,4 @@ This library uses following software to validate `.vim` files. Thank you.
  - [ynkdir](https://github.com/ynkdir) / [vim-vimlparser](https://github.com/ynkdir/vim-vimlparser)
 
 ## License
-MIT License<br />
-Copyright (c) 2015 Pine Mizune
+MIT License
