@@ -29,26 +29,26 @@ describe('Unit test for lib/postinstall.js', function () {
   describe('rimraf', function () {
     it('should load rimraf', function (done) {
       var file = path.join(__dirname, 'rimraf-test.txt');
-      
+
       fs.writeFile(file, '', function (err) {
         expect(err).to.not.be.ok;
-        
+
         postinstall.rimraf(file, function (err) {
           expect(err).to.not.be.ok;
           done();
         });
       });
     });
-    
+
     it('should load rimraf with a delay', function (done) {
       var file = path.join(__dirname, 'rimraf-test.txt');
       fs.writeFile(file, '', function (err) {
         expect(err).to.not.be.ok;
-        
+
         var modules = path.join(__dirname, '../node_modules/rimraf');
         rimraf(modules, function (err) {
           expect(err).to.not.be.ok;
-          
+
           async.parallel([
             function (cb) {
               var npm_cmd = 'npm install rimraf';
@@ -72,9 +72,9 @@ describe('Unit test for lib/postinstall.js', function () {
       });
     });
   });
-  
+
   // ------------------------------------------------------------------------
-  
+
   describe('git_clone', function () {
     it('should clone a repository', function (done) {
       var url = 'https://github.com/pine613/node-vimlint';
@@ -83,22 +83,20 @@ describe('Unit test for lib/postinstall.js', function () {
         done();
       });
     });
-    
+
     it('should write stdout', function (done) {
-      var sandbox = sinon.sandbox.create();
-      sandbox.stub(String.prototype, 'slice', function () {
-        return 'node-vimlint';
-      });
-      
-      var url = 'https://github.com/pine613/node-vimlint && echo test mock';
-      
+      /*jshint -W053 */
+      var url = new String('https://github.com/pine613/node-vimlint && echo test mock');
+      /*jshint +W053 */
+
+      url.slice = function () { return 'node-vimlint'; };
+
       postinstall.git_clone(url, function (err) {
         expect(err).to.not.be.ok;
-        sandbox.restore();
         done();
       });
     });
-    
+
     it('should fail to clone a repository url\'s scheme is invalid', function (done) {
       var url = 'xhttps://github.com/pine613/node-vimlint';
       postinstall.git_clone(url, function (err) {
@@ -106,7 +104,7 @@ describe('Unit test for lib/postinstall.js', function () {
         done();
       });
     });
-    
+
     it('should fail to clone a repository because directory can\'t remove', function (done) {
       var url = {
         slice: function () { return ERROR_DIR; },
@@ -118,9 +116,9 @@ describe('Unit test for lib/postinstall.js', function () {
       });
     });
   });
-  
+
   // ------------------------------------------------------------------------
-  
+
   describe('clone_repos', function () {
     it('should clone repository', function (done) {
       var url = 'https://github.com/pine613/node-vimlint';
@@ -128,7 +126,7 @@ describe('Unit test for lib/postinstall.js', function () {
         done(err);
       });
     });
-    
+
     it('should fail to clone a repository', function (done) {
       var url = {
         slice: function () { return ERROR_DIR; },
