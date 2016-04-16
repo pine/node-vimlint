@@ -9,7 +9,7 @@ node-vimlint
 [![devDependency Status](https://img.shields.io/david/dev/pine613/node-vimlint.svg?style=flat-square)](https://david-dm.org/pine613/node-vimlint#info=devDependencies)
 
 
-Validate `.vimrc`, `.vim` files with [vimlint](https://github.com/syngan/vim-vimlint).
+Validate .vimrc, .vim files with [vimlint](https://github.com/syngan/vim-vimlint).
 
 ## Getting Started
 
