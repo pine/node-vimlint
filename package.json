@@ -19,18 +19,18 @@
   "bin": "bin/vimlint",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pine613/node-vimlint.git"
+    "url": "https://github.com/pine/node-vimlint.git"
   },
   "author": {
     "name": "Pine Mizune",
     "email": "pinemz@gmail.com",
-    "url": "https://github.com/pine613"
+    "url": "https://github.com/pine"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pine613/node-vimlint/issues"
+    "url": "https://github.com/pine/node-vimlint/issues"
   },
-  "homepage": "https://github.com/pine613/node-vimlint",
+  "homepage": "https://github.com/pine/node-vimlint",
   "dependencies": {
     "commander": "^2.7.1",
     "rimraf": "^2.2.8"

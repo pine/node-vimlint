@@ -77,7 +77,7 @@ describe('Unit test for lib/postinstall.js', function () {
 
   describe('git_clone', function () {
     it('should clone a repository', function (done) {
-      var url = 'https://github.com/pine613/node-vimlint';
+      var url = 'https://github.com/pine/node-vimlint';
       postinstall.git_clone(url, function (err) {
         expect(err).to.not.be.ok;
         done();
@@ -86,7 +86,7 @@ describe('Unit test for lib/postinstall.js', function () {
 
     it('should write stdout', function (done) {
       /*jshint -W053 */
-      var url = new String('https://github.com/pine613/node-vimlint && echo test mock');
+      var url = new String('https://github.com/pine/node-vimlint && echo test mock');
       /*jshint +W053 */
 
       url.slice = function () { return 'node-vimlint'; };
@@ -98,7 +98,7 @@ describe('Unit test for lib/postinstall.js', function () {
     });
 
     it('should fail to clone a repository url\'s scheme is invalid', function (done) {
-      var url = 'xhttps://github.com/pine613/node-vimlint';
+      var url = 'xhttps://github.com/pine/node-vimlint';
       postinstall.git_clone(url, function (err) {
         expect(err).to.be.ok;
         done();
@@ -121,7 +121,7 @@ describe('Unit test for lib/postinstall.js', function () {
 
   describe('clone_repos', function () {
     it('should clone repository', function (done) {
-      var url = 'https://github.com/pine613/node-vimlint';
+      var url = 'https://github.com/pine/node-vimlint';
       postinstall.clone_repos([url], function (err) {
         done(err);
       });
