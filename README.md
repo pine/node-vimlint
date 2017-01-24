@@ -5,9 +5,7 @@ node-vimlint
 [![Build Status](https://img.shields.io/travis/pine/node-vimlint/master.svg?style=flat-square)](https://travis-ci.org/pine/node-vimlint)
 [![Code Climate](https://img.shields.io/codeclimate/github/pine/node-vimlint.svg?style=flat-square)](https://codeclimate.com/github/pine/node-vimlint)
 [![Coverage Status](https://img.shields.io/coveralls/pine/node-vimlint/master.svg?style=flat-square)](https://coveralls.io/r/pine/node-vimlint?branch=master)
-[![Dependency Status](https://img.shields.io/david/pine/node-vimlint.svg?style=flat-square)](https://david-dm.org/pine/node-vimlint)
-[![devDependency Status](https://img.shields.io/david/dev/pine/node-vimlint.svg?style=flat-square)](https://david-dm.org/pine/node-vimlint#info=devDependencies)
-
+[![Gemnasium](https://img.shields.io/gemnasium/pine/node-vimlint.svg?style=flat-square)](https://gemnasium.com/github.com/pine/node-vimlint)
 
 Validate .vimrc, .vim files with [vimlint](https://github.com/syngan/vim-vimlint).
 
